@@ -9,15 +9,24 @@
 #    Updated: 2023/08/10 00:06:08 by craimond         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-all: do-op
+SRCS	= do-op.c operazioni.c
+NAME	= do-op
+OBJS	=  ${SRCS:.c=.o}
+HEADERS	= headers/
 
-do-op:
-	@cc -Wall -Wextra -Werror *.c -o do-op
-	@rm -f do-op.o
+.c.o	:
+		@gcc -Wall -Wextra -Werror -g -I ${HEADERS} -c $< -o ${<:.c=.o}
 
-clean:
-	@rm -f do-op
+${NAME} : ${OBJS}
+		@gcc -Wall -Wextra -Werror -g -I ${HEADERS} ${OBJS} -o ${NAME}
 
-re: clean all
+all : ${NAME}
 
-.PHONY: all clean
+
+clean :
+		@rm -f ${OBJS}
+
+fclean : clean
+		@rm -f ${NAME}
+
+re : fclean all

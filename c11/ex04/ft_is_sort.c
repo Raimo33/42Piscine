@@ -23,7 +23,7 @@ int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 	is_ascending = 1;
 	while (++i < length - 1)
 	{
-		if (!(f(tab[i], tab[i + 1]) < 0))
+		if (f(tab[i], tab[i + 1]) < 0)
 		{
 			is_ascending = 0;
 			break ;
@@ -32,7 +32,7 @@ int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 	i = -1;
 	while (++i < length - 1)
 	{
-		if (!(f(tab[i], tab[i + 1]) > 0))
+		if (f(tab[i], tab[i + 1]) > 0)
 		{
 			is_descending = 0;
 			break ;
@@ -40,3 +40,30 @@ int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 	}
 	return (is_descending + is_ascending);
 }
+/*
+int compare_integers(int a, int b) {
+    if (a < b) {
+        return -1;
+    } else if (a == b) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+int	main(void){
+	int *array = malloc(sizeof(int) * 11);
+	array[0] = 1;
+	array[1] = 2; 
+	array[2] = 2; 
+	array[3] = 2; 
+	array[4] = 2; 
+	array[5] = 3;
+	array[6] = 4; 
+	array[7] = 5;
+	array[8] = 6; 
+	array[9] = 6; 
+	array[10] = 6; 
+	array[11] = 7;
+	printf("risultato: %d\n", ft_is_sort(array, 11, &compare_integers));
+}*/
