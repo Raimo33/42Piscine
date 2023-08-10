@@ -15,30 +15,24 @@ int	ft_is_sort(int *tab, int length, int (*f)(int, int));
 int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int	i;
-	int	is_ascending;
-	int	is_descending;
 
 	i = -1;
-	is_descending = 1;
-	is_ascending = 1;
 	while (++i < length - 1)
 	{
-		if (f(tab[i], tab[i + 1]) < 0)
-		{
-			is_ascending = 0;
+		if (!(f(tab[i], tab[i + 1]) < 0)) 
 			break ;
-		}
 	}
+	if (i == lenght - 1)
+		return (1);
 	i = -1;
 	while (++i < length - 1)
 	{
-		if (f(tab[i], tab[i + 1]) > 0)
-		{
-			is_descending = 0;
+		if (!(f(tab[i], tab[i + 1]) > 0))
 			break ;
-		}
 	}
-	return (is_descending + is_ascending);
+	if (i == lenght - 1)
+		return (1);
+	return (0);
 }
 /*
 int compare_integers(int a, int b) {
