@@ -17,14 +17,14 @@ int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 	int	i;
 
 	i = -1;
-	if (lenght == 1)
+	if (length == 1)
 		return (1);
 	while (++i < length - 1)
 	{
 		if (!(f(tab[i], tab[i + 1]) <= 0)) 
 			break ;
 	}
-	if (i == lenght - 1)
+	if (i == length - 1)
 		return (1);
 	i = -1;
 	while (++i < length - 1)
@@ -32,7 +32,7 @@ int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 		if (!(f(tab[i], tab[i + 1]) >= 0))
 			break ;
 	}
-	if (i == lenght - 1)
+	if (i == length - 1)
 		return (1);
 	return (0);
 }
