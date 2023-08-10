@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/22 08:50:34 by craimond          #+#    #+#             */
-/*   Updated: 2023/07/22 08:50:36 by craimond         ###   ########.fr       */
+/*   Created: 2023/08/09 16:46:55 by craimond          #+#    #+#             */
+/*   Updated: 2023/08/09 16:46:56 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	ft_count_if(char **tab, int lenght, int (*f)(char *));
 
-void	ft_ft(int *nbr);
-
-void	ft_ft(int *nbr)
+int	ft_count_if(char **tab, int lenght, int (*f)(char *))
 {
-	*nbr = 42;
+	int	i;
+	int	n;
+
+	i = -1;
+	n = 0;
+	while (++i < lenght)
+	{
+		if (f(tab[i]) != 0)
+			n++;
+	}
+	return (n);
 }
